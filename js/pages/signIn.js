@@ -6,8 +6,8 @@ const $userEmailErrorMsg = document.querySelector('.user-email-error-msg')
 const $userPasswordInput = document.querySelector('#user-password')
 const $userPasswordErrorMsg = document.querySelector('.user-password-error-msg')
 
-const USER_EMAIL = "thomas@facadia.com"
-const USER_PASSWORD = "azerty"
+const USER_EMAIL = "user@facadia.com"
+const USER_PASSWORD = "Pa$$w0rd"
 
 const checkUserEmailInput = () => {
     const isUserEmailValid = $userEmailInput.value.toLowerCase() === USER_EMAIL
@@ -35,7 +35,7 @@ const checkUserPasswordInput = () => {
 
 const isFormValid = () => checkUserEmailInput() && checkUserPasswordInput()
 
-$signInForm.addEventListener('submit', function(e) {
+$signInForm.addEventListener('submit', function (e) {
     e.preventDefault()
 
     if (isFormValid()) {
