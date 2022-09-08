@@ -23,22 +23,23 @@ const createSensorCardImg = sensor => {
 const createSensorCardInfo = sensor => {
     const $sensorInfo = document.createElement('div')
     $sensorInfo.classList.add('sensor-info')
-    
+
     const $sensorInfoTitle = document.createElement('h3')
     $sensorInfoTitle.textContent = `Capteur #${sensor.id}`
 
     const $sensorInfoLocation = document.createElement('span')
     $sensorInfoLocation.classList.add('sensor-info-location')
     $sensorInfoLocation.textContent = `Localisation : ${sensor.location}`
-    
+
     const $sensorInfoStatus = document.createElement('span')
     $sensorInfoStatus.classList.add('sensor-info-status')
     $sensorInfoStatus.innerHTML = sensor.isActive
         ? `Status : <span class="on">actif</span>`
         : `Status : <span class="off">inactif</span>`
-    
-    
-    const $sensorInfoBtn = document.createElement('anchor')
+
+
+    // const $sensorInfoBtn = document.createElement('anchor')
+    const $sensorInfoBtn = document.createElement('a')
     $sensorInfoBtn.classList.add('sensor-info-btn')
     $sensorInfoBtn.setAttribute('href', `/pages/sensor-details.html?facadeId=${sensor.id}`)
     $sensorInfoBtn.textContent = 'Voir les détails'
@@ -63,7 +64,7 @@ const createSensorCard = sensor => {
 
     $sensorCard.appendChild($sensorImg)
     $sensorCard.appendChild($sensorInfo)
-    
+
 
     return $sensorCard
 }
@@ -104,9 +105,9 @@ const calculateOffset = () => {
 
 const main = async () => {
     const sensorsData = await retrieveSensorsData()
-    
+
     createPagination(sensorsData.length)
-    
+
     const offset = calculateOffset()
 
     for (let i = offset; i < ITEMS_PER_PAGE + offset; i++) {
