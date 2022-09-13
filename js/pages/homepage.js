@@ -6,7 +6,7 @@ const ITEMS_PER_PAGE = 8
 const retrieveSensorsData = () => fetch('/data/homepage-data.json')
     .then(res => res.json)
     .then(data => data.facades)
-    .catch(err => {})
+    .catch(err => { })
 
 
 const createSensorCardImg = sensor => {
@@ -24,21 +24,21 @@ const createSensorCardImg = sensor => {
 const createSensorCardInfo = sensor => {
     const $sensorInfo = document.createElement('div')
     $sensorInfo.classList.add('sensor-info')
-    
+
     const $sensorInfoTitle = document.createElement('h3')
     $sensorInfoTitle.textContent = `Capteur #${sensor.id}`
 
     const $sensorInfoLocation = document.createElement('span')
     $sensorInfoLocation.classList.add('sensor-info-location')
     $sensorInfoLocation.textContent = `Localisation : ${sensor.location}`
-    
+
     const $sensorInfoStatus = document.createElement('span')
     $sensorInfoStatus.classList.add('sensor-info-status')
     $sensorInfoStatus.innerHTML = sensor.isActive
         ? `Status : <span class="on">actif</span>`
         : `Status : <span class="off">inactive</span>`
-    
-    
+
+
     const $sensorInfoBtn = document.createElement('a')
     $sensorInfoBtn.classList.add('sensor-info-btn')
     $sensorInfoBtn.setAttribute('href', `/pages/sensor-details.html?facadeId=${sensor.id}`)
@@ -64,7 +64,7 @@ const createSensorCard = sensor => {
 
     $sensorCard.appendChild($sensorImg)
     $sensorCard.appendChild($sensorInfo)
-    
+
 
     return $sensorCard
 }
@@ -103,7 +103,7 @@ const calculateOffset = () => {
 }
 
 // @TODO: Need to finish the function implementation
-$dropdownForm.addEventListener('change', function(e) {
+$dropdownForm.addEventListener('change', function (e) {
     console.log(e.target.value)
 
 })
@@ -111,9 +111,9 @@ $dropdownForm.addEventListener('change', function(e) {
 
 const main = async () => {
     const sensorsData = await retrieveSensorsData()
-    
+
     createPagination(sensorsData.length)
-    
+
     const offset = calculateOffset()
 
     for (let i = offset; i < ITEMS_PER_PAGE + offset; i++) {
