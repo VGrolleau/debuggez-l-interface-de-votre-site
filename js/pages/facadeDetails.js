@@ -46,7 +46,7 @@ const fillSensorTable = sensorData => {
 const fillWeatherForecastTable = weatherForecastData => {
     $weatherLocation.textContent = weatherForecastData.location.name
     $weatherTemperature.textContent = `${weatherForecastData.current.temperature} °C`
-    
+
 }
 
 
@@ -58,7 +58,7 @@ const handleSensorImagesGallery = sensorData => {
         e.preventDefault()
         console.log('prev')
     })
-    
+
     $nextItem.addEventListener('click', e => {
         e.preventDefault()
         console.log('next')
