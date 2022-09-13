@@ -3,24 +3,25 @@ const $addSensorForm = document.querySelector('.add-sensor-form')
 const $latInput = document.querySelector('.lat-input')
 const $lngInput = document.querySelector('.lng-input')
 
-const checkSensorId = () => {}
+const checkSensorId = () => { }
 
-const checkSensorStatus = () => {}
+const checkSensorStatus = () => { }
 
-const checkSensorBrand = () => {}
+const checkSensorBrand = () => { }
 
-const checkSensorLat = () => {}
+const checkSensorLat = () => { }
 
-const checkSensorLng = () => {}
+const checkSensorLng = () => { }
 
-const checkTechnicienId = () => {}
+const checkTechnicienId = () => { }
 
 
 const isFormValid = () => checkSensorId() && checkSensorStatus() && checkSensorBrand() && checkSensorLat() && checkSensorLng() && checkTechnicienId()
 
 
 const handleGeolocation = () => {
-    if ("geolocatio" in navigator) {
+    // if ("geolocatio" in navigator) {
+    if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(position => {
             $latInput.value = position.coords.latitude
             $lngInput.value = position.coords.longitude
@@ -33,7 +34,7 @@ const main = () => {
 
     $addSensorForm.addEventListener('submit', e => {
         e.preventDefault()
-        
+
         console.log("===")
     })
 }
